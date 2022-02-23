@@ -114,11 +114,11 @@
       ```
 7.## Запускаем Packer
   ```
-  packer build centos.json
+     packer build centos.json
   ```
-  послу успешного завершения у меня создался образ centos-7.7.1908-kernel-5-x86_64-Minimal-otus.box
+   послу успешного завершения у меня создался образ centos-7.7.1908-kernel-5-x86_64-Minimal-otus.box
 8. Запускаем тестирование образа(если запустить Vagrant без теста, выдаст ошибку)
-   ```
+  ```
    adminroot@wvds136386:~/git/otus-homework/packer$ vagrant up
    Bringing machine 'kernel-update-otus' up with 'virtualbox' provider...
       ==> kernel-update-otus: Box 'centos-7' could not be found. Attempting to find and install...
@@ -129,20 +129,20 @@
     path. Box version constraints only work with boxes from Vagrant
     Cloud or a custom box host. Please remove the version constraint
     and try again.
-    ```
-   ```
+  ```
+  ```
    vagrant box add centos-7 /home/adminroot/git/otus-homework/packer/centos-7.7.1908-kernel-5-x86_64-Minimal-otus.box
-   ```
-   Проверим его в списке имеющихся образов 
-   ```
+  ```
+  Проверим его в списке имеющихся образов 
+  ```
    vagrant box list
    centos-7            (virtualbox, 0)
-   ```
-   Запуск теста
-   ```
+  ```
+  Запуск теста
+  ```
    vagrant init centos-7
-   ```
-   ```
+  ```
+  ```
    adminroot@wvds136386:~/git/otus-homework/packer$ vagrant init centos-7
    A `Vagrantfile` has been placed in this directory. You are now
    ready to `vagrant up` your first virtual environment! Please read
@@ -155,10 +155,10 @@
    [vagrant@localhost ~]$ uname -r
    5.16.8-1.el7.elrepo.x86_64
    [vagrant@localhost ~]$
-   ```
+  ```
 7. Выгрузка образа в Vagrant Cloud
    Регистрируемся в Vagrant.com через web интерфейс и подклюучаемся на хостовой машине к облаку
-   ```
+  ```
    vagrant cloud auth login
    Vagrant Cloud username or email: <user_email>
    Password (will be hidden): 
@@ -167,5 +167,5 @@
    Теперь выгружаем наш образ в облако
    vagrant cloud publish --release SATimur/centos-7 1.0 virtualbox \
         centos-7.7.1908-kernel-5-x86_64-Minimal-otus.box
-   ```
+  ```
  
